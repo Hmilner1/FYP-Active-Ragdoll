@@ -125,6 +125,7 @@
 -define:USING_PHYSICS2D_MODULE
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/FloatingEntities/Scripts/ArchimedsLab.dll"
 -r:"D:/Unity/2022.1.4f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"D:/Unity/2022.1.4f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"D:/Unity/2022.1.4f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
