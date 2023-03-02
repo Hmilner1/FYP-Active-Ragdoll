@@ -404,6 +404,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
 "Assets/Scripts/Character_Cntroller.cs"
+"Assets/Scripts/CSVOutput.cs"
 "Assets/Scripts/MenuController.cs"
 "Assets/Water Float/Core/WaterFloat.cs"
 "Assets/Water Float/Demo/Standard Assets/Environment/Water/Water/Scripts/Displace.cs"
