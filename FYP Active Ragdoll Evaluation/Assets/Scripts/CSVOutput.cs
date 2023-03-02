@@ -30,9 +30,14 @@ public class CSVOutput : MonoBehaviour
 
     private bool m_FirstOpen;
     private TextWriter tw;
+
+
+    private int frame = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         m_fileName = Application.dataPath + "/" + FileName + ".csv";
         m_FirstOpen = true;
 
@@ -51,8 +56,12 @@ public class CSVOutput : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        frame++;
         tw.WriteLine(head.transform.position.x.ToString() + "," + head.transform.position.y.ToString() + "," + head.transform.position.z.ToString() + "," + spine.transform.position.x.ToString() + "," + spine.transform.position.y.ToString() + "," + spine.transform.position.z.ToString() + "," + rightLeg.transform.position.x.ToString() + "," + leftShoulder.transform.position.y.ToString() + "," + leftShoulder.transform.position.z.ToString() + "," + rightShoulder.transform.position.x.ToString() + "," + rightShoulder.transform.position.y.ToString() + "," + rightShoulder.transform.position.z.ToString() + "," + hip.transform.position.x.ToString() + "," + hip.transform.position.y.ToString() + "," + hip.transform.position.z.ToString() + "," + leftLeg.transform.position.x.ToString() + "," + leftLeg.transform.position.y.ToString() + "," + leftLeg.transform.position.z.ToString() + "," + rightLeg.transform.position.x.ToString() + "," + rightLeg.transform.position.y.ToString() + "," + leftShoulder.transform.position.z.ToString());
-
+        if (frame == 100)
+        {
+            Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+        }
     }
 
     //public void WriteToDoc()
