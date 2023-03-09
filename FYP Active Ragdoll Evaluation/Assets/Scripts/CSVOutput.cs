@@ -30,51 +30,62 @@ public class CSVOutput : MonoBehaviour
 
     private bool m_FirstOpen;
     private TextWriter tw;
-
+    private float second = 0;
 
     private int frame = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         m_fileName = Application.dataPath + "/" + FileName + ".csv";
         m_FirstOpen = true;
 
-        tw = new StreamWriter(m_fileName, false);
-        tw.WriteLine("Head x, Head y, Head z, Spine x, Spine y, Spine z, Left Shoulder x, Left Shoulder y, Left Shoulder z, Right Shoulder x, Right Shoulder y, Right Shoulder z, Hips x, Hips y, Hips z, Left Leg x, Right Leg x, Left Leg y, Right Leg y, Left Leg z, Right Leg z");
-        tw.Close();
+        if (System.IO.File.Exists(m_fileName))
+        {
+            m_FirstOpen = false;
+        }
+
+        if (m_FirstOpen == true)
+        {
+            tw = new StreamWriter(m_fileName, false);
+            tw.WriteLine("Head x, Head y, Head z, Spine x, Spine y, Spine z, Left Shoulder x, Left Shoulder y, Left Shoulder z, Right Shoulder x, Right Shoulder y, Right Shoulder z, Hips x, Hips y, Hips z, Left Leg x, Right Leg x, Left Leg y, Right Leg y, Left Leg z, Right Leg z");
+            tw.Close();
+        }
 
         tw = new StreamWriter(m_fileName, true);
+        StartCoroutine(OutPutData());
     }
 
     // Update is called once per frame
     void Update()
     {
-        //tw.WriteLine(head.transform.position.x.ToString() + "," + head.transform.position.y.ToString() + "," + head.transform.position.z.ToString() + "," + spine.transform.position.x.ToString() + "," + spine.transform.position.y.ToString() + "," + spine.transform.position.z.ToString() + "," + rightLeg.transform.position.x.ToString() + "," + leftShoulder.transform.position.y.ToString() + "," + leftShoulder.transform.position.z.ToString() + "," + rightShoulder.transform.position.x.ToString() + "," + rightShoulder.transform.position.y.ToString() + "," + rightShoulder.transform.position.z.ToString() + "," + hip.transform.position.x.ToString() + "," + hip.transform.position.y.ToString() + "," + hip.transform.position.z.ToString() + "," + leftLeg.transform.position.x.ToString() + "," + leftLeg.transform.position.y.ToString() + "," + leftLeg.transform.position.z.ToString() + "," + rightLeg.transform.position.x.ToString() + "," + rightLeg.transform.position.y.ToString() + "," + leftShoulder.transform.position.z.ToString());
-
+        
     }
+
     private void FixedUpdate()
     {
-        frame++;
-        tw.WriteLine(head.transform.position.x.ToString() + "," + head.transform.position.y.ToString() + "," + head.transform.position.z.ToString() + "," + spine.transform.position.x.ToString() + "," + spine.transform.position.y.ToString() + "," + spine.transform.position.z.ToString() + "," + rightLeg.transform.position.x.ToString() + "," + leftShoulder.transform.position.y.ToString() + "," + leftShoulder.transform.position.z.ToString() + "," + rightShoulder.transform.position.x.ToString() + "," + rightShoulder.transform.position.y.ToString() + "," + rightShoulder.transform.position.z.ToString() + "," + hip.transform.position.x.ToString() + "," + hip.transform.position.y.ToString() + "," + hip.transform.position.z.ToString() + "," + leftLeg.transform.position.x.ToString() + "," + leftLeg.transform.position.y.ToString() + "," + leftLeg.transform.position.z.ToString() + "," + rightLeg.transform.position.x.ToString() + "," + rightLeg.transform.position.y.ToString() + "," + leftShoulder.transform.position.z.ToString());
-        if (frame == 100)
+        //frame++;
+        //tw.WriteLine(head.transform.position.x.ToString() + "," + head.transform.position.y.ToString() + "," + head.transform.position.z.ToString() + "," + spine.transform.position.x.ToString() + "," + spine.transform.position.y.ToString() + "," + spine.transform.position.z.ToString() + "," + rightLeg.transform.position.x.ToString() + "," + leftShoulder.transform.position.y.ToString() + "," + leftShoulder.transform.position.z.ToString() + "," + rightShoulder.transform.position.x.ToString() + "," + rightShoulder.transform.position.y.ToString() + "," + rightShoulder.transform.position.z.ToString() + "," + hip.transform.position.x.ToString() + "," + hip.transform.position.y.ToString() + "," + hip.transform.position.z.ToString() + "," + leftLeg.transform.position.x.ToString() + "," + leftLeg.transform.position.y.ToString() + "," + leftLeg.transform.position.z.ToString() + "," + rightLeg.transform.position.x.ToString() + "," + rightLeg.transform.position.y.ToString() + "," + leftShoulder.transform.position.z.ToString());
+        //if (frame == 200)
+        //{
+        //    Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+        //}
+    }
+
+    IEnumerator OutPutData()
+    {
+        while (true)
         {
-            Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+            yield return new WaitForSeconds(0.2f);
+            second = second + 0.2f;
+            tw.WriteLine(head.transform.position.x.ToString() + "," + head.transform.position.y.ToString() + "," + head.transform.position.z.ToString() + "," + spine.transform.position.x.ToString() + "," + spine.transform.position.y.ToString() + "," + spine.transform.position.z.ToString() + "," + rightLeg.transform.position.x.ToString() + "," + leftShoulder.transform.position.y.ToString() + "," + leftShoulder.transform.position.z.ToString() + "," + rightShoulder.transform.position.x.ToString() + "," + rightShoulder.transform.position.y.ToString() + "," + rightShoulder.transform.position.z.ToString() + "," + hip.transform.position.x.ToString() + "," + hip.transform.position.y.ToString() + "," + hip.transform.position.z.ToString() + "," + leftLeg.transform.position.x.ToString() + "," + leftLeg.transform.position.y.ToString() + "," + leftLeg.transform.position.z.ToString() + "," + rightLeg.transform.position.x.ToString() + "," + rightLeg.transform.position.y.ToString() + "," + leftShoulder.transform.position.z.ToString());
+            if (second >= 10)
+            {
+                tw.Close();
+                Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+            }
         }
     }
 
-    //public void WriteToDoc()
-    //{
-    //    if (m_FirstOpen = true)
-    //    {
-    //        tw = new StreamWriter(m_fileName, false);
-    //        tw.WriteLine("Head x, Head y, Head z, Spine x, Spine y, Spine z, Left Shoulder x, Left Shoulder y, Left Shoulder z, Right Shoulder x, Right Shoulder y, Right Shoulder z, Hips x, Hips y, Hips z, Left Leg x, Right Leg x, Left Leg y, Right Leg y, Left Leg z, Right Leg z");
-    //        tw.Close();
-    //        m_FirstOpen = false;
-    //    }
 
-    //    tw = new StreamWriter(m_fileName, true);
-    //    tw.WriteLine(head.transform.position.x.ToString() + "," + head.transform.position.y.ToString() + "," + head.transform.position.z.ToString() + "," + spine.transform.position.x.ToString() + "," + spine.transform.position.y.ToString() + "," + spine.transform.position.z.ToString() + "," + rightLeg.transform.position.x.ToString() + "," + leftShoulder.transform.position.y.ToString() + "," + leftShoulder.transform.position.z.ToString() + "," + rightShoulder.transform.position.x.ToString() + "," + rightShoulder.transform.position.y.ToString() + "," + rightShoulder.transform.position.z.ToString() + "," + hip.transform.position.x.ToString() + "," + hip.transform.position.y.ToString() + "," + hip.transform.position.z.ToString() + "," + leftLeg.transform.position.x.ToString() + "," + leftLeg.transform.position.y.ToString() + "," + leftLeg.transform.position.z.ToString() + "," + rightLeg.transform.position.x.ToString() + "," + rightLeg.transform.position.y.ToString() + "," + leftShoulder.transform.position.z.ToString());
-    //}
 }
