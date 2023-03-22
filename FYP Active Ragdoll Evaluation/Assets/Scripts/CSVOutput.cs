@@ -56,22 +56,6 @@ public class CSVOutput : MonoBehaviour
         StartCoroutine(OutPutData());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void FixedUpdate()
-    {
-        //frame++;
-        //tw.WriteLine(head.transform.position.x.ToString() + "," + head.transform.position.y.ToString() + "," + head.transform.position.z.ToString() + "," + spine.transform.position.x.ToString() + "," + spine.transform.position.y.ToString() + "," + spine.transform.position.z.ToString() + "," + rightLeg.transform.position.x.ToString() + "," + leftShoulder.transform.position.y.ToString() + "," + leftShoulder.transform.position.z.ToString() + "," + rightShoulder.transform.position.x.ToString() + "," + rightShoulder.transform.position.y.ToString() + "," + rightShoulder.transform.position.z.ToString() + "," + hip.transform.position.x.ToString() + "," + hip.transform.position.y.ToString() + "," + hip.transform.position.z.ToString() + "," + leftLeg.transform.position.x.ToString() + "," + leftLeg.transform.position.y.ToString() + "," + leftLeg.transform.position.z.ToString() + "," + rightLeg.transform.position.x.ToString() + "," + rightLeg.transform.position.y.ToString() + "," + leftShoulder.transform.position.z.ToString());
-        //if (frame == 200)
-        //{
-        //    Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
-        //}
-    }
-
     IEnumerator OutPutData()
     {
         while (true)
