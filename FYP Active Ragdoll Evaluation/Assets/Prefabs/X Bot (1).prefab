@@ -355,7 +355,7 @@ Transform:
   - {fileID: 2270300051986900717}
   - {fileID: 6789146583420225222}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!54 &1579935989320754993
 Rigidbody:
@@ -399,7 +399,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 9c8f7a2f6383bcf4d907f748aa8fbd9c, type: 3}
   m_Controller: {fileID: 9100000, guid: 16e48b6575adeed46a7a568ca4e620fa, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
