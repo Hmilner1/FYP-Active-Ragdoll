@@ -9,19 +9,12 @@ public class UnityRagDollScript : MonoBehaviour
     [SerializeField]
     private ConfigurableJoint joint;
 
-
     Quaternion InitalRotation;
-    // Start is called before the first frame update
+  
     void Start()
     {
         this.joint = this.GetComponent<ConfigurableJoint>();
         this.InitalRotation = this.target.transform.localRotation;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void FixedUpdate()

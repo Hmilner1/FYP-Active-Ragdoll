@@ -34,7 +34,6 @@ public class CSVOutput : MonoBehaviour
 
     private int frame = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         m_fileName = Application.dataPath + "/" + FileName + ".csv";

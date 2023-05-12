@@ -6,17 +6,10 @@ public class Character_Cntroller : MonoBehaviour
 {
     private WaterFloat floatController;
 
-    // Start is called before the first frame update
     void Start()
     {
         floatController = GameObject.Find("X Bot").GetComponent<WaterFloat>();
         floatController.enabled = false;
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 

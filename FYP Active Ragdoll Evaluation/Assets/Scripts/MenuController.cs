@@ -6,17 +6,18 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
-    private Canvas mainMenuCanvas;
-    private Button firstSceneButton;
-
-    private void Start()
-    {
-        mainMenuCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-        firstSceneButton = GameObject.Find("Scene 1").GetComponent<Button>();
-    }
-
     public void OnScene1Clicked()
     {
-        SceneManager.LoadScene("Scene1");
+        SceneManager.LoadScene("Scene Bridge");
+    }
+
+    public void OnScene2Clicked()
+    {
+        SceneManager.LoadScene("Scene Terrain");
+    }
+
+    public void OnScene3Clicked()
+    {
+        SceneManager.LoadScene("Scene Water");
     }
 }

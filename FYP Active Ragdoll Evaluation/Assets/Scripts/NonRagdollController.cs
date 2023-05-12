@@ -9,7 +9,6 @@ public class NonRagdollController : MonoBehaviour
 
     public float speed;
 
-    // Update is called once per frame
     void Update()
     {
         m_Rb.velocity =  new Vector3(-1, 0, 0).normalized * speed * Time.deltaTime;
