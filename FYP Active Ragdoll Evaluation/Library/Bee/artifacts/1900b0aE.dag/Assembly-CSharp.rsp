@@ -407,6 +407,7 @@
 "Assets/Scripts/Character_Cntroller.cs"
 "Assets/Scripts/CSVOutput.cs"
 "Assets/Scripts/MenuController.cs"
+"Assets/Scripts/MenuManager.cs"
 "Assets/Scripts/NonRagdollController.cs"
 "Assets/Scripts/UnityRagDollMovement.cs"
 "Assets/Scripts/UnityRagDollScript.cs"
